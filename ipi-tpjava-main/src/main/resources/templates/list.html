@@ -23,12 +23,12 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:if="${!list.isEmpty()}" th:each="salarieM : ${list}">
+        <tr th:if="${list}" th:each="salarieM : ${list}">
           <td th:text="${salarieM.id}"></td>
           <td th:text="${salarieM.nom}"></td>
-          <td><a th:href="@{'/salaries/' + ${salarie.id}}" class="btn btn-primary ember-view">Détail</a></td>
+          <td><a th:href="@{'/salaries/' + ${salarieM.id}}" class="btn btn-primary ember-view">Détail</a></td>
         </tr>
-        <tr th:unless="${!list.isEmpty()}" th:each="salarie : ${salaries} ">
+        <tr th:unless="${list}" th:each="salarie : ${salaries} ">
           <td th:text="${salarie.id}"></td>
           <td th:text="${salarie.nom}"></td>
           <td><a th:href="@{'/salaries/' + ${salarie.id}}" class="btn btn-primary ember-view">Détail</a></td>

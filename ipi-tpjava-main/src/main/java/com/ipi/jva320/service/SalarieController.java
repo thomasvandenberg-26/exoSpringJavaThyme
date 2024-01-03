@@ -3,7 +3,6 @@ package com.ipi.jva320.service;
 import com.ipi.jva320.model.SalarieAideADomicile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,12 +23,11 @@ public class SalarieController {
           return "detail_Salarie";
     }
     @GetMapping(value = "/salaries")
-   public String listSalarie()
+   public String listSalarie(ModelMap modelMap)
     {
             List<SalarieAideADomicile> list = salarieService.getSalaries();
-//            modelMap.put("salaries",list);
+            modelMap.put("salaries", list);
             return "list";
-
     }
     @RequestMapping(value = "/salaries/aide/new")
     public String creerSalarieForm(){
@@ -52,5 +50,3 @@ public class SalarieController {
        return  "list";
     }
 }
-
-
